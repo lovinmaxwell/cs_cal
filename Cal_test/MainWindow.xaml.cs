@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Forms;
+using System.Windows.Interop;
+using Application = System.Windows.Application;
 
 namespace Cal_test
 {
@@ -23,6 +26,11 @@ namespace Cal_test
         long number1 = 0;
         long number2 = 0;
         string operation = "";
+        string theText = ""; 
+
+        RawStuff.InputDevice id;
+        int NumberOfKeyboards;
+        Message message = new Message();
 
         public MainWindow()
         {
@@ -282,7 +290,7 @@ namespace Cal_test
             }
         }
 
-        private void Window_KeyDown(object sender, KeyEventArgs e)
+        private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.NumPad1)
             {
@@ -481,6 +489,33 @@ namespace Cal_test
                 }
             }
 
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+
+
+        public IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
+        {
+            if (id != null)
+            {
+                message.HWnd = hwnd;
+                message.Msg = msg;
+                message.LParam = lParam;
+                message.WParam = wParam;
+                id.ProcessMessage(message);
+            }
+            return IntPtr.Zero;
+        }
+    
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            System.Windows.Controls.TextBox objTextBox = (System.Windows.Controls.TextBox)sender;
+            string lovin = objTextBox.Text;
+            string theText = objTextBox.Text;
         }
     }
 }
