@@ -512,10 +512,17 @@ namespace Cal_test
         }
     
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
+       {
             System.Windows.Controls.TextBox objTextBox = (System.Windows.Controls.TextBox)sender;
-            string lovin = objTextBox.Text;
-            string theText = objTextBox.Text;
+             theText = objTextBox.Text;
+        }
+
+        private void end(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                System.Windows.MessageBox.Show(theText);
+            }
         }
     }
 }
