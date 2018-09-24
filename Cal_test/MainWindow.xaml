@@ -7,7 +7,7 @@
         KeyDown="Window_KeyDown"
         mc:Ignorable="d"
         Title="calculator" >
-    <Grid>
+    <Grid Margin="0,0,2,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
@@ -55,10 +55,12 @@
 
         <TextBox x:Name="Ans" IsReadOnly="True" TextAlignment="Right"  VerticalAlignment="Bottom" FontSize="30" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Height="84">0</TextBox>
 
-        <TextBox HorizontalAlignment="Center" Height="56" TextWrapping="Wrap"  VerticalAlignment="Center" Width="344" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="26,54,10,63" Grid.ColumnSpan="4" Grid.Column="4" Grid.Row="2" Grid.RowSpan="2" Padding="2,0,0,3" Background="White" CaretBrush="Black" BorderBrush="Black" Panel.ZIndex="{DynamicResource {x:Static SystemParameters.BorderKey}}" TextChanged="TextBox_TextChanged" KeyDown="end"/>
-        <Button x:Name="Close" Content="Close" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" Width="111" Height="29" Click="Close_Click" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="5"/>
+        <TextBox x:Name="testval" HorizontalAlignment="Center" Height="56" TextWrapping="Wrap"  VerticalAlignment="Center" Width="344" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="13,54,23,58" Grid.ColumnSpan="4" Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" Padding="2,0,0,3" Background="White" CaretBrush="Black" BorderBrush="Black" Panel.ZIndex="{DynamicResource {x:Static SystemParameters.BorderKey}}" TextChanged="TextBox_TextChanged" KeyDown="end"/>
+        <Button x:Name="Close" Content="Close" HorizontalAlignment="Left" Margin="40,28,0,0" VerticalAlignment="Top" Width="111" Height="29" Click="Close_Click" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="5"/>
         <Label Grid.Column="4" Content="POC for Windows POS OS" Margin="10,15,0,0" Width="364" Height="69" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="4" VerticalAlignment="Top"/>
-        <Label Content="Barcode Test" HorizontalAlignment="Center" Margin="10,60,0,0" Width="344" FontSize="18" HorizontalContentAlignment="Center" Grid.ColumnSpan="4" Grid.Column="4" Grid.Row="1" Height="48" VerticalAlignment="Top" Grid.RowSpan="2" VerticalContentAlignment="Center"/>
+        <Label Content="Barcode Test" HorizontalAlignment="Center" Margin="26,0,10,0" Width="344" FontSize="18" HorizontalContentAlignment="Center" Grid.ColumnSpan="4" Grid.Column="4" Grid.Row="1" Height="48" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+        <Canvas Name="mainCanvas" Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="3" Margin="26,51,67,0" Grid.RowSpan="2">
 
+        </Canvas>
     </Grid>
 </Window>
